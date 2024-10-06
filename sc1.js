@@ -1,4 +1,4 @@
-fetch('http://localhost:8080/realms/master/protocol/openid-connect/auth')
+fetch('http://localhost:8080/auth/realms/master/protocol/openid-connect/auth')
   .then(response => {
     if (response.status === 200) {
       alert('SSRF Success: Resource found');
