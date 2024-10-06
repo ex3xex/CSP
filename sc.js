@@ -1,4 +1,4 @@
-fetch('/realms/master/.well-known/openid-configuration')
+fetch('/auth/realms/master/.well-known/openid-configuration')
   .then(response => response.json())
   .then(data => {
     alert(JSON.stringify(data));  // Display internal config data
